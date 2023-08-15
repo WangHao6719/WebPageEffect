@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Top Navigation Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 999;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            transition: top 0.5s ease-in-out;
+        }
+
+        .hide {
+            top: -50px;
+        }
+
+        .content {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            display: none;
+            position: relative;
+        }
+
+        .box {
+            width: 200px;
+            height: fit-content;
+            border: 1px solid #333;
+            margin: 10px;
+            padding: 20px;
+            position: absolute;
+        }
+
+        .box img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-up {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+        <div>My Website</div>
+    </nav>
+    <main class="content">
+    </main>
+    <div class="scroll-up">↑</div>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+
+            if (prevScrollpos > currentScrollPos) {
+                document.querySelector(".menu").classList.remove("hide");
+                document.querySelector(".scroll-up").style.display = "none";
+            } else {
+                document.querySelector(".menu").classList.add("hide");
+                document.querySelector(".scroll-up").style.display = "block";
+            }
+
+            prevScrollpos = currentScrollPos;
+
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector(".scroll-up").style.display = "block";
+            } else {
+                document.querySelector(".scroll-up").style.display = "none";
+            }
+        }
+        //获取数据列表
+        const getList = function () {
+            fetch("https://picsum.photos/v2/list?page=3&limit=50").then(response => response.json()).then(data => {
+                var content = document.querySelector(".content");
+                var html = "";
+                data.forEach(item => {
+                    html += `<div class="box" ><img src="${item.download_url}" alt=""></div>`;
+                });
+                content.innerHTML = html;
+            }).then(() => {
+                setInterval(() => {
+                    var content = document.querySelector(".content");
+                    if (content.innerHTML) {
+                        document.querySelector(".content").style.display = "block";
+                        setBoxPosition();
+                    }
+                }, 1000);
+            });
+        };
+
+        //获取列的数量
+        const getColNum = function () {
+            var width = window.innerWidth;
+            var colNum = Math.floor(width / 260);
+            return colNum;
+        };
+        //设置盒子的位置
+        const setBoxPosition = function () {
+            var boxes = document.querySelectorAll(".box");
+            var colNum = getColNum();
+            var arr = [];
+            for (var i = 0; i < colNum; i++) {
+                arr.push(0);
+            }
+            boxes.forEach((item, index) => {
+                var min = Math.min(...arr);
+                var minIndex = arr.indexOf(min);
+                item.style.left = minIndex * 260 + "px";
+                item.style.top = min + "px";
+                arr[minIndex] += item.offsetHeight + 20;
+            });
+            var max = Math.max(...arr);
+            document.querySelector(".content").style.height = max + "px";
+        };
+
+        //监听窗口变化
+        window.addEventListener("resize", function () {
+            setBoxPosition();
+        });
+        getList();
+        document.querySelector(".scroll-up").addEventListener("click", function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+    </script>
+</body>
+
+</html>

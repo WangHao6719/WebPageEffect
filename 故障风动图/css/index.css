@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.mix {
+    width: 320px;
+    height: 320px;
+    background: url(./ikun.webp) #0ff;
+    background-blend-mode: lighten;
+    position: relative;
+    overflow: hidden;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: grayscale(1);
+    mix-blend-mode: darken;
+}
+
+/* .mix::before {
+    content: '';
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    background: url(./ikun.webp) #f0f;
+    background-blend-mode: lighten;
+    margin-left: 5px;
+    mix-blend-mode: darken;
+    animation: shaken 100ms infinite;
+} */
+
+@keyframes shaken {
+    50% {
+        transform: translateX(10px);
+    }
+}

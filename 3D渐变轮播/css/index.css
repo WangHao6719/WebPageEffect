@@ -1,0 +1,33 @@
+html,
+body {
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    padding: 50px 100px;
+    justify-content: center;
+    transform: translateY(50%);
+}
+
+.prev,
+.next {
+    color: #fff;
+    margin: 0 20px;
+}
+
+.imgs {
+    position: relative;
+    width: 900px;
+    height: 300px;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.carousel-item {
+    position: absolute;
+    inset: 0;
+    margin: 0 auto;
+    transition: all 1s;
+}

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(45deg, #e66465, #9198e5);
+    font-family: 'DaoLiTi';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    line-height: 1;
+    margin: 0;
+    font-size: 10rem;
+    letter-spacing: 5px;
+    color: #e6e6e6;
+    text-align: center;
+    text-shadow: 1px -1px #fff, -1px 1px #999, -8px 8px 3px #808080;
+}
+
+@font-face {
+    font-family: 'DaoLiTi';
+    src: url('./AlimamaDaoLiTi.ttf');
+}

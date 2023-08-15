@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(45deg, #e66465, #9198e5);
+  font-family: "DaoLiTi";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 10rem;
+  letter-spacing: 5px;
+  text-align: center;
+}
+html[data-theme=dark] h1 {
+  color: #000;
+  text-shadow: 1px -1px #fff, -1px 1px #ccc, -8px 8px 3px #f3f3f3;
+}
+html[data-theme=light] h1 {
+  color: #fff;
+  text-shadow: 1px -1px #fff, -1px 1px #999, -8px 8px 3px #808080;
+}
+
+@font-face {
+  font-family: "DaoLiTi";
+  src: url("./AlimamaDaoLiTi.ttf");
+}
+.button {
+  margin: 100px auto;
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */
