@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.box {
+    display: flex;
+    position: relative;
+}
+
+.tab {
+    width: 150px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    transform: perspective(30px) rotateX(10deg);
+    transform-origin: center bottom;
+    text-align: center;
+    background-color: #dddddd;
+}
+
+.tab1 {
+    left: 0;
+    right: -50px;
+
+}
+
+
+
+.tab2 {
+    left: -50px;
+    right: 0;
+
+}
+
+.text {
+    width: 150px;
+    position: absolute;
+    text-align: center;
+}
+
+.text1 {
+    left: 10px;
+    top: 15px;
+    z-index: 10;
+}
+
+.text2 {
+    right: 50px;
+    top: 15px;
+    z-index: 10;
+}
+
+.tab::before,
+.tab::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    background-color: inherit;
+}
+
+.tab::before {
+    left: -20px;
+    background: radial-gradient(circle at 0 0, transparent 20px, #dddddd 20px);
+}
+
+.tab::after {
+    right: -20px;
+    background: radial-gradient(circle at 100% 0, transparent 20px, #dddddd 0px);
+
+}
+
+.active {
+    background-color: #ed6a5e;
+    z-index: 10;
+}
+
+.active-text {
+    color: #fff;
+}
+
+.active::before {
+    left: -20px;
+    background: radial-gradient(circle at 0 0, transparent 20px, #ed6a5e 20px);
+}
+
+.active::after {
+    right: -20px;
+    background: radial-gradient(circle at 100% 0, transparent 20px, #ed6a5e 0px);
+
+}

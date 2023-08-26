@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(226, 177, 17);
+}
+
+h1 {
+    color: #fff;
+    font-size: 5em;
+    text-shadow:
+        -1px 1px #bbb,
+        -2px 2px #bbb,
+        -3px 3px #bbb,
+        -4px 5px #bbb,
+        -10px 10px 3px #000;
+}
