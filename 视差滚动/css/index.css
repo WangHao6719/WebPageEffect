@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+section {
+    height: 100vh;
+    text-align: center;
+    line-height: 100vh;
+}
+
+section:nth-child(1) {
+    background-image: url("../img/1.webp");
+}
+
+section:nth-child(2) {
+    background-image: url("../img/2.webp");
+}
+
+section:nth-child(3) {
+    background-image: url("../img/3.webp");
+}
+
+section:nth-child(4) {
+    background-image: url("../img/4.webp");
+}
+
+section:nth-child(5) {
+    background-image: url("../img/5.webp");
+}
+
+h1 {
+    color: white;
+    text-shadow: 1px 1px 3px #000;
+    z-index: 1;
+    font-size: 3em;
+    font-weight: 400;
+}

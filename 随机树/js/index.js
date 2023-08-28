@@ -15,9 +15,9 @@ ctx.fillStyle = '#996600';
 ctx.fill();
 drawBranch({ x: 0, y: 80 }, 20, 120, 90);
 
-// setInterval(() => {
-//     window.location.reload();
-// }, 5000);
+setInterval(() => {
+    window.location.reload();
+}, 5000);
 
 //绘制树的枝干
 function drawBranch(v0, thick, length, dir) {

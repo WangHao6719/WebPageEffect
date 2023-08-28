@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+}
+
+span {
+    color: #faebd7;
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: 30px;
+    animation: spread 2s ease-in-out infinite alternate;
+}
+
+@keyframes spread {
+    to {
+        color: #df7008;
+        text-shadow: 0px 0 70px #df7008;
+    }
+}
+@for $i from 1 through 8 {
+    span:nth-child(#{$i}) {
+        animation-delay: ($i - 1) * 0.2s;
+    }
+}
