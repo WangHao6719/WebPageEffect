@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --bg: url("../img/1.webp") no-repeat center center;
+    height: 100vh;
+    display: flex;
+    background: var(--bg);
+    background-size: cover;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}

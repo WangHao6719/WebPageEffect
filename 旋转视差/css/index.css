@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    --r: 360deg;
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template:
+        'a a b'
+        'c d b'
+        'c e e';
+    grid-gap: 5px;
+    animation: rotation 10s linear infinite;
+}
+
+.item {
+    overflow: hidden;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item img {
+    --r: -360deg;
+    width: 250%;
+    height: 250%;
+    object-fit: cover;
+    animation: rotation 10s linear infinite;
+}
+
+
+.item:nth-child(1) {
+    grid-area: a;
+}
+
+.item:nth-child(2) {
+    grid-area: b;
+}
+
+.item:nth-child(3) {
+    grid-area: c;
+}
+
+.item:nth-child(4) {
+    grid-area: d;
+}
+
+.item:nth-child(5) {
+    grid-area: e;
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(var(--r));
+    }
+}

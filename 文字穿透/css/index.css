@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --bg: url("../img/1.webp") no-repeat center center;
+    height: 100vh;
+    display: flex;
+    background: var(--bg);
+    background-size: cover;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+}
+
+.modal h1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12vw;
+    -webkit-text-stroke: 2px #fff;
+    letter-spacing: 10px;
+    background: var(--bg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
